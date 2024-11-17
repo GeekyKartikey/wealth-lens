@@ -1,3 +1,4 @@
+"use client";
 import Filters from "@/components/Filters";
 import TransactionList from "@/components/TransactionList";
 
