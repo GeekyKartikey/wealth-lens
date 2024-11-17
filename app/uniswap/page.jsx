@@ -15,15 +15,7 @@ export default function UniswapPage() {
           />
           <h1 className="text-2xl font-bold">Uniswap V2</h1>
         </div>
-        <p className="text-2xl font-bold">{uniswapData.totalValue}</p>
-      </div>
-
-      {/* Liquidity Pool Section */}
-      <div>
-        <h2 className="text-lg font-semibold mb-4">Liquidity Pool</h2>
-        {uniswapData.pools.map((pool, index) => (
-          <Pool key={index} pool={pool} />
-        ))}
+        <p className="text-2xl font-bold">$00.00</p>
       </div>
     </div>
   );
