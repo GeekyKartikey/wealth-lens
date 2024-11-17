@@ -10,6 +10,7 @@ const MetaMaskButton = () => {
     if (typeof window.ethereum !== "undefined") {
       try {
         const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        console.log("Connected Wallet Address:", accounts[0]); // Debugging
         setAccount(accounts[0]);
       } catch (error) {
         console.error("Error connecting to MetaMask:", error);

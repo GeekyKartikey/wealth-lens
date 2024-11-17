@@ -4,6 +4,8 @@ import { usePageContext } from "@/app/context/PageContext";
 export default function TransactionList() {
   const { transactions, account } = usePageContext();
 
+  console.log("Transactions Data:", transactions); //Debugging
+
   if (!account) {
     return (
       <p className="text-gray-500 text-center">

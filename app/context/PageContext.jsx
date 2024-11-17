@@ -21,9 +21,12 @@ export const PageProvider = ({ children }) => {
         });
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const networkDetails = await provider.getNetwork();
-  
+
         setAccount(accounts[0]); // Updates the account state
         setNetwork(networkDetails.name); // Updates the network state
+
+        // Fetch transactions for the connected account
+        fetchTransactions(accounts[0]);
       } catch (error) {
         console.error("MetaMask connection failed:", error);
       }
@@ -32,15 +35,37 @@ export const PageProvider = ({ children }) => {
     }
   };
 
-  // Listen for MetaMask changes
+  // Fetch transactions using Push API
+  const fetchTransactions = async (walletAddress) => {
+    try {
+      const walletData = await PushAPI.user.getFeeds({
+        user: `eip155:${walletAddress}`, // Ensure correct format
+        env: "prod", // Switch to "staging" if needed
+      });
+
+      if (Array.isArray(walletData)) {
+        setTransactions(walletData); // Update state with transactions
+        console.log("Fetched Transactions:", walletData); // Debugging
+      } else {
+        console.warn("Unexpected Push API response:", walletData); // Handle unexpected responses
+        setTransactions([]);
+      }
+    } catch (error) {
+      console.error("Error fetching transactions from Push API:", error);
+      setTransactions([]);
+    }
+  };
+
+  // Listen for MetaMask account or network changes
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       const handleAccountsChanged = (accounts) => {
         setAccount(accounts[0] || null);
-        PushAPI.user.getFeeds({
-          user: `eip155:${accounts[0]}`,
-          env: "prod",
-        }).then(setTransactions);
+        if (accounts[0]) {
+          fetchTransactions(accounts[0]);
+        } else {
+          setTransactions([]); // Clear transactions if no account is connected
+        }
       };
 
       const handleNetworkChanged = async () => {
