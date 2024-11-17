@@ -2,13 +2,11 @@
 
 import React from "react";
 import AssetsSection from "@/components/AssetsSection";
-import assets from "@/data/assetsData"; // Importing the assets array
-import Image from "next/image";
+import assets from "@/data/assetsData";
 
 export default function DashboardPage() {
   return (
     <div className="min-h-screen w-full pl-20 md:pl-28 pr-20 pt-6">
-      {/* Dashboard Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-white">Dashboard</h1>
         <div className="flex gap-4">
@@ -20,7 +18,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Total Worth Section */}
       <div className="flex items-center justify-between bg-gray-900 p-6 rounded-lg shadow-md mb-6">
         <div>
           <p className="text-gray-400">Total Worth</p>
@@ -31,7 +28,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Assets Section */}
       <AssetsSection assets={assets} />
     </div>
   );
