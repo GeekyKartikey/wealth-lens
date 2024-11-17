@@ -11,7 +11,7 @@
   "dependencies": {
     "@pushprotocol/restapi": "^1.7.29",
     "dotenv": "^16.4.5",
-    "ethers": "^6.13.4",
+    "ethers": "^5.7.2",
     "next": "15.0.3",
     "react": "^18.2.0",
     "react-calendar": "^5.1.0",

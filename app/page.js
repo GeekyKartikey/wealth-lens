@@ -15,9 +15,9 @@ export default function Page() {
     switch (activePage) {
       case "home":
         return (
-          <div className="flex flex-col gap-20 h-screen w-screen px-4 md:px-10">
+          <div className="flex flex-col gap-24 h-screen w-screen px-4 md:px-10">
             {/* Header Section */}
-            <div className="flex flex-col gap-10 items-center justify-center mt-16">
+            <div className="flex flex-col gap-14 items-center justify-center mt-16">
               <h1 className="text-white font-extrabold font-inter text-6xl md:text-8xl text-center">
                 WEALTH LENS
               </h1>

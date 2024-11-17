@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { usePageContext } from "@/app/context/PageContext";
+import Link from "next/link";
 
 export default function Sidebar() {
   const { activePage, setActivePage } = usePageContext();
@@ -61,7 +62,9 @@ export default function Sidebar() {
         style={{ height: "50%" }}
       >
         <div className="p-4 h-full flex flex-col justify-center round items-center">
-          <h2 className="text-2xl font-bold mb-4">Menu</h2>
+          <Link href="/">
+            <h2 className="text-2xl font-bold mb-4">Menu</h2>
+          </Link>
           <ul>
             {menuItems.map((item) => (
               <li
