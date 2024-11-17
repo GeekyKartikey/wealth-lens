@@ -17,7 +17,7 @@ export const PageProvider = ({ children }) => {
     try {
       const walletData = await PushAPI.user.getFeeds({
         user: `eip155:${walletAddress}`,
-        env: "staging",
+        env: "prod",
       });
 
       if (Array.isArray(walletData)) {
