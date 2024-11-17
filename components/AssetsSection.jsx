@@ -4,7 +4,7 @@ export default function AssetsSection({ assets }) {
     return (
       <div className="bg-gray-900 p-4 rounded-lg shadow-md">
         <div className="flex justify-between items-center mb-4">
-          <h3 className="text-xl font-bold text-white">Assets $5,433,458.88</h3>
+          <h3 className="text-xl font-bold text-white">Assets $3.543</h3>
           <button className="bg-gray-800 text-white px-4 py-2 rounded-lg">
             See More Assets
           </button>

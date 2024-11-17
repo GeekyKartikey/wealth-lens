@@ -13,7 +13,7 @@ export default function NFTsPage() {
       <div className="flex justify-between items-center bg-gray-800 p-6 rounded-lg shadow-lg">
         <div>
           <p className="text-lg">Total Value by</p>
-          <h2 className="text-4xl font-bold">$11,185.88</h2>
+          <h2 className="text-4xl font-bold">$00.00</h2>
         </div>
         <select className="px-4 py-2 bg-gray-700 rounded-md text-white shadow-md">
           <option>Top Offer</option>

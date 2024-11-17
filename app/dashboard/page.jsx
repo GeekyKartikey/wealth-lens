@@ -18,12 +18,12 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between bg-gray-900 p-6 rounded-lg shadow-md mb-6">
+      <div className="flex items-center justify-between gap-4 bg-gray-900 p-6 rounded-lg shadow-md mb-6">
         <div>
           <p className="text-gray-400">Total Worth</p>
-          <h2 className="text-4xl font-bold text-white">$5,433,458.88</h2>
-          <p className="text-green-400 text-sm">
-            $20,461.1 <span className="text-green-500">▲ 0.38%</span>
+          <h2 className="text-4xl font-bold text-white">$3.543</h2>
+          <p className="text-red-500 text-sm">
+            -$1.733 <span className="text-red-500">▼ 32.85%</span>
           </p>
         </div>
       </div>

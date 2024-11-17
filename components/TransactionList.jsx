@@ -4,6 +4,7 @@ import { usePageContext } from "@/app/context/PageContext";
 export default function TransactionList() {
   const { transactions, account } = usePageContext();
 
+
   console.log("Transactions Data:", transactions); // Debugging
 
   // Handle case when wallet is not connected
