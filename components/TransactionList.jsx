@@ -4,8 +4,9 @@ import { usePageContext } from "@/app/context/PageContext";
 export default function TransactionList() {
   const { transactions, account } = usePageContext();
 
-  console.log("Transactions Data:", transactions); //Debugging
+  console.log("Transactions Data:", transactions); // Debugging
 
+  // Handle case when wallet is not connected
   if (!account) {
     return (
       <p className="text-gray-500 text-center">
@@ -14,7 +15,8 @@ export default function TransactionList() {
     );
   }
 
-  if (transactions.length === 0) {
+  // Handle case when no transactions are found
+  if (!transactions || transactions.length === 0) {
     return (
       <p className="text-gray-500 text-center">
         No transactions found for the connected wallet.
@@ -22,6 +24,7 @@ export default function TransactionList() {
     );
   }
 
+  // Render the list of transactions
   return (
     <div>
       {transactions.map((transaction, index) => (
@@ -30,7 +33,7 @@ export default function TransactionList() {
             {new Date(transaction.timestamp).toLocaleDateString()}
           </h2>
           <div className="bg-gray-800 rounded-lg shadow-md p-4">
-            <TransactionItem key={index} item={transaction} />
+            <TransactionItem item={transaction} />
           </div>
         </div>
       ))}

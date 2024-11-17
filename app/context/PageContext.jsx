@@ -12,6 +12,27 @@ export const PageProvider = ({ children }) => {
   const [network, setNetwork] = useState(null);
   const [transactions, setTransactions] = useState([]);
 
+  // Fetch transactions using PushAPI
+  const fetchTransactions = async (walletAddress) => {
+    try {
+      const walletData = await PushAPI.user.getFeeds({
+        user: `eip155:${walletAddress}`,
+        env: "prod",
+      });
+
+      if (Array.isArray(walletData)) {
+        setTransactions(walletData);
+        console.log("Fetched Transactions:", walletData);
+      } else {
+        console.warn("Unexpected PushAPI response:", walletData);
+        setTransactions([]);
+      }
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+      setTransactions([]);
+    }
+  };
+
   // Function to connect MetaMask
   const connectMetaMask = async () => {
     if (typeof window.ethereum !== "undefined") {
@@ -22,10 +43,10 @@ export const PageProvider = ({ children }) => {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const networkDetails = await provider.getNetwork();
 
-        setAccount(accounts[0]); // Updates the account state
-        setNetwork(networkDetails.name); // Updates the network state
+        setAccount(accounts[0]);
+        setNetwork(networkDetails.name);
 
-        // Fetch transactions for the connected account
+        // Fetch transactions after wallet connects
         fetchTransactions(accounts[0]);
       } catch (error) {
         console.error("MetaMask connection failed:", error);
@@ -35,28 +56,7 @@ export const PageProvider = ({ children }) => {
     }
   };
 
-  // Fetch transactions using Push API
-  const fetchTransactions = async (walletAddress) => {
-    try {
-      const walletData = await PushAPI.user.getFeeds({
-        user: `eip155:${walletAddress}`, // Ensure correct format
-        env: "prod", // Switch to "staging" if needed
-      });
-
-      if (Array.isArray(walletData)) {
-        setTransactions(walletData); // Update state with transactions
-        console.log("Fetched Transactions:", walletData); // Debugging
-      } else {
-        console.warn("Unexpected Push API response:", walletData); // Handle unexpected responses
-        setTransactions([]);
-      }
-    } catch (error) {
-      console.error("Error fetching transactions from Push API:", error);
-      setTransactions([]);
-    }
-  };
-
-  // Listen for MetaMask account or network changes
+  // Listen for MetaMask changes
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       const handleAccountsChanged = (accounts) => {
@@ -64,7 +64,7 @@ export const PageProvider = ({ children }) => {
         if (accounts[0]) {
           fetchTransactions(accounts[0]);
         } else {
-          setTransactions([]); // Clear transactions if no account is connected
+          setTransactions([]);
         }
       };
 

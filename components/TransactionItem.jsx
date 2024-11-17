@@ -1,35 +1,67 @@
 export default function TransactionItem({ item }) {
+  if (!item) {
+    return (
+      <div className="text-gray-500 text-center">
+        Transaction data is unavailable.
+      </div>
+    );
+  }
+
+  const {
+    chain = "Unknown Chain",
+    type = "N/A",
+    asset = "Unknown Asset",
+    exchangeRate = "Unknown Rate",
+    value = "N/A",
+    pl = "N/A",
+    plPercent = "N/A",
+    portfolio = "N/A",
+  } = item;
+
+  const chainIcon = chain === "Ethereum" ? "Ξ" : "M";
+
   return (
     <div className="grid grid-cols-5 items-center gap-4 border-b border-gray-700 pb-3 mb-3 last:border-none last:mb-0">
+      {/* Chain Icon and Type */}
       <div className="flex items-center gap-2">
         <div
           className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-            item.chain === "Ethereum" ? "bg-purple-500" : "bg-pink-500"
+            chain === "Ethereum" ? "bg-purple-500" : "bg-pink-500"
           }`}
         >
-          {item.chain === "Ethereum" ? <span>Ξ</span> : <span>M</span>}
+          {chainIcon}
         </div>
-        <span className="text-white">{item.type || "N/A"}</span>
+        <span className="text-white">{type}</span>
       </div>
+
+      {/* Asset and Exchange Rate */}
       <div>
-        <p className="text-sm text-white">{item.asset || "Unknown Asset"}</p>
-        <p className="text-gray-500 text-xs">
-          {item.exchangeRate || "Unknown Rate"}
+        <p className="text-sm text-white">{asset}</p>
+        <p className="text-gray-500 text-xs">{exchangeRate}</p>
+      </div>
+
+      {/* Value */}
+      <div>
+        <p className="text-white">{value}</p>
+      </div>
+
+      {/* Profit/Loss */}
+      <div>
+        <p className={`text-green-400 ${pl.startsWith("-") && "text-red-400"}`}>
+          {pl}
+        </p>
+        <p className={`text-green-400 ${plPercent.startsWith("-") && "text-red-400"}`}>
+          {plPercent}
         </p>
       </div>
-      <div>
-        <p className="text-white">{item.value || "N/A"}</p>
-      </div>
-      <div>
-        <p className="text-green-400">{item.pl || "N/A"}</p>
-        <p className="text-green-400">{item.plPercent || "N/A"}</p>
-      </div>
+
+      {/* Portfolio */}
       <div>
         <p className="flex items-center gap-2 text-white">
-          {item.portfolio || "N/A"}
+          {portfolio}
           <span
             className={`w-4 h-4 ${
-              item.chain === "Ethereum" ? "bg-purple-500" : "bg-pink-500"
+              chain === "Ethereum" ? "bg-purple-500" : "bg-pink-500"
             } rounded-full`}
           ></span>
         </p>
