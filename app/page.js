@@ -1,31 +1,52 @@
-import Image from "next/image";
-import Nav from "@/components/Nav";
-import Sidebar from "@/components/Sidebar";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col gap-5 bg-gradient-1 h-screen w-screen">
-      <Nav />
-      <Sidebar />
+import { usePageContext } from "./context/PageContext";
+import TransactionsPage from "./transactions/page";
+import DashboardPage from "./dashboard/page";
+import NFTsPage from "./nft/page";
+import UniswapPage from "./uniswap/page";
+import CryptoTracker from "./cryptotracker/page";
+import MetaMaskButton from "@/components/MetaMaskButton";
 
-      <div className="flex flex-col gap-16 items-center justify-center">
-        <h1 className="text-white font-extrabold font-inter text-8xl">WEALTH LENS</h1>
-        <p className="text-white font-semibold font-inter text-xl">"Discover what your wallet can truly do."</p>
-      </div>
+export default function Page() {
+  const { activePage } = usePageContext();
 
-      <div className="w-full flex items-center justify-center">
-        <div className="flex flex-row items-center justify-center gap-3 w-72 h-16 border-white">
-          <Image 
-            src="/search.svg"
-            alt="search-icon"
-            width={14}
-            height={14}
-          />
+  const renderPage = () => {
+    switch (activePage) {
+      case "home":
+        return (
+          <div className="flex flex-col gap-20 h-screen w-screen px-4 md:px-10">
+            {/* Header Section */}
+            <div className="flex flex-col gap-10 items-center justify-center mt-16">
+              <h1 className="text-white font-extrabold font-inter text-6xl md:text-8xl text-center">
+                WEALTH LENS
+              </h1>
+              <p className="text-white font-semibold font-inter text-lg md:text-xl text-center">
+                "Discover what your wallet can truly do."
+              </p>
+            </div>
 
-          <h3 className="text-white">Search wallet addresses, assets on any blockchain</h3>
-        </div>
-      </div>
-      
-    </div>
-  );
+            {/* Search Section */}
+            <div className="w-full flex items-center justify-center">
+              <MetaMaskButton />
+            </div>
+          </div>
+        );
+
+      case "dashboard":
+        return <DashboardPage />;
+      case "transactions":
+        return <TransactionsPage />;
+      case "uniswap":
+        return <UniswapPage />;
+      case "nft":
+        return <NFTsPage />
+      case "cryptotracker":
+        return <CryptoTracker />;
+      default:
+        return <div className="text-white text-xl p-6">404 - Page Not Found</div>;
+    }
+  };
+
+  return <div>{renderPage()}</div>;
 }

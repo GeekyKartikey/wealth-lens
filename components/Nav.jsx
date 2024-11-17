@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <div className="flex flex-row items-center border-white justify-between w-full h-28">
+    <div className="flex flex-row items-center justify-between bg-transparent w-full h-28">
         <Link href="/">
             <Image 
               src="/logo.png"
