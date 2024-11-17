@@ -61,16 +61,9 @@ We welcome contributions from the community! If you would like to contribute to 
 
 For support, queries, or more information, reach out to us:
 
-- **Developer Contact:** Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
-- **Project Link:** [https://github.com/yourusername/wealth-lens](https://github.com/yourusername/wealth-lens)
+- **Developer Contact:** Your Name - [@yourtwitter](https://twitter.com/geeky_kartikey)
+- **Project Link:** [https://github.com/yourusername/wealth-lens](https://github.com/geekykartikey/wealth-lens)
 
 ## About Push Protocol
 
 Wealth Lens utilizes Push Protocol’s Wallet Tracker Channel to provide real-time notifications and updates directly to users' interfaces. Push Protocol is a comprehensive communication layer for Web3 applications, offering services like transaction notifications, event updates, and more. For more detailed documentation on how to integrate and utilize Push Protocol in your projects, visit [Push Protocol Documentation](https://docs.push.org).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-This Markdown content is ready to be directly copied and saved into a `README.md` file for your project. It contains all the necessary information and instructions formatted within the markdown syntax for clarity and proper display on GitHub. If any specific adjustments are needed, please let me know!
