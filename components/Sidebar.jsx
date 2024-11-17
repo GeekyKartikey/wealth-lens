@@ -62,9 +62,7 @@ export default function Sidebar() {
         style={{ height: "50%" }}
       >
         <div className="p-4 h-full flex flex-col justify-center round items-center">
-          <Link href="/">
-            <h2 className="text-2xl font-bold mb-4">Menu</h2>
-          </Link>
+          <h2 className="text-2xl font-bold mb-4">Menu</h2>
           <ul>
             {menuItems.map((item) => (
               <li
