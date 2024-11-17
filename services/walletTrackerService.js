@@ -5,7 +5,7 @@ export const fetchWalletTransactions = async (walletAddress) => {
   try {
     const walletData = await PushAPI.user.getFeeds({
       user: `eip155:${walletAddress}`, // Format for wallet address
-      env: process.env.NEXT_PUBLIC_PUSH_API_ENV, // Use "prod" for production environment
+      env: "staging", // Use "prod" for production environment
     });
     console.log("Fetched Transactions from Push API:", walletData); // Debugging
     return walletData; // This will include transactions and other activities

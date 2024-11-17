@@ -21,7 +21,7 @@ export const sendNotification = async () => {
       },
       recipients: "eip155:0xYourWalletAddressHere",
       channel: "eip155:0xYourChannelAddressHere", // your channel address
-      env: process.env.NEXT_PUBLIC_PUSH_API_ENV,
+      env: "staging",
     });
     console.log("Notification Sent:", response);
   } catch (err) {
