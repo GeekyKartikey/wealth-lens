@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Wealth Lens
 
-First, run the development server:
+**Discover What Your Wallet Can Really Do**
+
+Wealth Lens is a next-generation wallet tracking and notification platform that empowers users with real-time insights into their digital assets. Integrating seamlessly with Push Protocol’s Wallet Tracker Channel, Wealth Lens enhances the digital asset management experience by providing comprehensive transaction tracking, asset management, and real-time notifications within a user-friendly interface.
+
+## Features
+
+- **Real-Time Wallet Tracking:** Monitors wallet balances, transactions, and assets across multiple blockchains.
+- **Push Notifications:** Delivers alerts on transactions, DAO updates, security threats, and more.
+- **Interactive UI:** Offers a visually appealing and intuitive dashboard with actionable insights.
+- **MetaMask Integration:** Enables direct connection with MetaMask for enhanced functionality.
+- **Event Calendar and Updates:** Keeps users informed about key crypto events and DAO proposals.
+- **Uniswap Pools:** Allows users to manage and explore liquidity pools within the Uniswap ecosystem.
+- **NFT Management:** Tracks and analyzes NFT holdings directly from your wallet.
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/wealth-lens.git
+cd wealth-lens
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+After installing Wealth Lens, follow these steps to get the application up and running:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Navigate to the project directory
+cd path/to/wealth-lens
 
-## Learn More
+# Start the application
+npm start
 
-To learn more about Next.js, take a look at the following resources:
+# Access the application at http://localhost:3000 in your web browser
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Additional Commands
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Run tests to ensure the application is functioning correctly
+npm test
 
-## Deploy on Vercel
+# Build the application for a production environment
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+We welcome contributions from the community! If you would like to contribute to Wealth Lens, please follow these guidelines:
+
+- **Fork the Repository:** Start by forking the Wealth Lens repository on GitHub.
+- **Create a Feature Branch:** Create a branch in your forked repository for your feature or fix (`git checkout -b feature/YourFeature`).
+- **Commit Your Changes:** Make your changes in your feature branch and commit them (`git commit -am 'Add some YourFeature'`).
+- **Push to the Branch:** Push your changes to your repository (`git push origin feature/YourFeature`).
+- **Submit a Pull Request:** Open a pull request from your feature branch to the main Wealth Lens repository. Provide a clear description of the changes and any relevant context.
+
+## Contact
+
+For support, queries, or more information, reach out to us:
+
+- **Developer Contact:** Your Name - [@geeky_kartikey](https://twitter.com/geeky_kartikey)
+- **Project Link:** [https://github.com/geekykartikey/wealth-lens](https://github.com/geekykartikey/wealth-lens)
+
+## About Push Protocol
+
+Wealth Lens utilizes Push Protocol’s Wallet Tracker Channel to provide real-time notifications and updates directly to users' interfaces. Push Protocol is a comprehensive communication layer for Web3 applications, offering services like transaction notifications, event updates, and more. For more detailed documentation on how to integrate and utilize Push Protocol in your projects, visit [Push Protocol Documentation](https://docs.push.org).
