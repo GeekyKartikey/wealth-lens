@@ -61,7 +61,7 @@ We welcome contributions from the community! If you would like to contribute to 
 
 For support, queries, or more information, reach out to us:
 
-- **Developer Contact:** Your Name - [@geeky_kartikey](https://twitter.com/geeky_kartikey)
+- **Developer Contact:** [@geeky_kartikey](https://twitter.com/geeky_kartikey)
 - **Project Link:** [https://github.com/geekykartikey/wealth-lens](https://github.com/geekykartikey/wealth-lens)
 
 ## About Push Protocol
